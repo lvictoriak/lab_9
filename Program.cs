@@ -11,7 +11,6 @@ namespace Лаб_раб_9
         static void Main(string[] args)
         {
             Car car = new Car();
-
             car.FuelVolume = 10;
             car.PrintInfo();
         }
