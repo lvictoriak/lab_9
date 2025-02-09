@@ -5,3 +5,10 @@ C:\Users\vikal\source\repos\Лаб раб 9\obj\Debug\Лаб раб 9.csproj.Ass
 C:\Users\vikal\source\repos\Лаб раб 9\obj\Debug\Лаб раб 9.csproj.CoreCompileInputs.cache
 C:\Users\vikal\source\repos\Лаб раб 9\obj\Debug\Лаб раб 9.exe
 C:\Users\vikal\source\repos\Лаб раб 9\obj\Debug\Лаб раб 9.pdb
+C:\Users\vikal\source\repos\Лаб-раб-9\bin\Debug\Лаб раб 9.exe.config
+C:\Users\vikal\source\repos\Лаб-раб-9\bin\Debug\Лаб раб 9.exe
+C:\Users\vikal\source\repos\Лаб-раб-9\bin\Debug\Лаб раб 9.pdb
+C:\Users\vikal\source\repos\Лаб-раб-9\obj\Debug\Лаб раб 9.csproj.AssemblyReference.cache
+C:\Users\vikal\source\repos\Лаб-раб-9\obj\Debug\Лаб раб 9.csproj.CoreCompileInputs.cache
+C:\Users\vikal\source\repos\Лаб-раб-9\obj\Debug\Лаб раб 9.exe
+C:\Users\vikal\source\repos\Лаб-раб-9\obj\Debug\Лаб раб 9.pdb
