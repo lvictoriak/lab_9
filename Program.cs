@@ -31,6 +31,19 @@ namespace Лаб_раб_9
             Console.WriteLine($"Запас хода: {car.CalculateRange()} км");
             Console.WriteLine();
         }
+        static string PrintInfo1(Car car)
+        {
+            return $"Расход топлива: {car.FuelFlow} л/100км." + $" Объем топлива: {car.FuelVolume} л." + $" Запас хода: {car.CalculateRange()} км.";
+        }
+        //Вывод элементов массива
+        static void PrintInfoCars(CarArray cars)
+        {
+            for (int i = 0; i < cars.Length; i++)
+            {
+                Console.WriteLine(PrintInfo1(cars[i]));
+            }
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             int answer = 0; //ответ для демонстрационного меню
@@ -174,7 +187,31 @@ namespace Лаб_раб_9
 
                         break;
                     case 3:
+                        Console.WriteLine("Создание коллекции");
+                        CarArray cars = new CarArray(5);
+                        PrintInfoCars(cars);
 
+                        Console.WriteLine("Копирование коллекции");
+                        CarArray carsCopy = new CarArray(cars);
+                        PrintInfoCars(carsCopy);
+
+                        Console.WriteLine("Проверка работы индексатора. Вывод первого эоемеента и попытка вывода 6 в коллекции из 5 элементов");
+                        try
+                        {
+                            PrintInfo(cars[0]);
+                            PrintInfo(cars[6]);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        Console.WriteLine();
+
+                        Console.WriteLine("Нахождение автомобиля с наименьшим запасом хода");
+                        PrintInfoCars(cars);
+                        Car minRangeCar = cars.FindCarMinimumRange();
+                        Console.WriteLine(minRangeCar);
+                        Console.WriteLine();
                         break;
                 }
             } while (answer < 4);

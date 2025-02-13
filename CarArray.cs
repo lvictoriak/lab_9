@@ -51,13 +51,35 @@ namespace Лаб_раб_9
 
             count++;
         }
-        //Метод для просмотра элементов массива
-        public void PrintInfoCars()
+        
+        //Индексатор
+        public Car this[int index]
         {
+            get
+            {
+                if (index < 0 || index >= cars.Length)
+                    throw new IndexOutOfRangeException("Индекс вне допустимого диапазона.");
+                return cars[index];
+            }
+            set
+            {
+                if (index < 0 || index >= cars.Length)
+                    throw new IndexOutOfRangeException("Индекс вне допустимого диапазона.");
+                cars[index] = value;
+            }
+        }
+        //Найти автомобиль с наименьшим запасом хода.
+        public Car FindCarMinimumRange()
+        {
+            if (cars.Length == 0) return null;
+
+            Car carWithMinRange = cars[0];
             foreach (Car car in cars)
             {
-                Console.WriteLine(car.ToString());
+                if (car != null & car.CalculateRange() < carWithMinRange.CalculateRange())
+                    carWithMinRange = car;
             }
+            return carWithMinRange;
         }
         //Посчет кол-ва созданных объектов и коллекций
         public static int GetCount => count;
