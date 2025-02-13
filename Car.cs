@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Лаб_раб_9
 {
-    internal class Car
+    public class Car
     {
         // Закрытые поля
         private double fuelFlow;

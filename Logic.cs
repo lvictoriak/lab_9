@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Лаб_раб_9
 {
-    internal class Logic
+    public class Logic
     {
         public static double MathematicalRound(double c, int roun)
         {

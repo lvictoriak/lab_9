@@ -33,6 +33,10 @@ namespace Лаб_раб_9
         }
         static void Main(string[] args)
         {
+            Console.WriteLine(); 
+            
+            
+            
             Car c1 = CreateElem(10, 25);
             PrintInfo(c1);
             Console.WriteLine(Car.GetCount);
