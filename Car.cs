@@ -77,7 +77,7 @@ namespace Лаб_раб_9
         }
 
         // Метод для вычисления запаса хода
-        public double CalculateRange() //сделать по одному возвращению, создать переменную
+        public double CalculateRange()
         {
             double range = 0;
             if (FuelFlow == 0) 
@@ -162,9 +162,12 @@ namespace Лаб_раб_9
         }
         public static bool operator ==(Car car1, Car car2)
         {
-            return (car1 is null && car2 is null); //проверить, уменьшить кол-во веток!!!!
-            if (car1 is null || car2 is null) return false;
-            return (car1.FuelFlow == car2.FuelFlow && car1.FuelVolume == car2.FuelVolume);
+            bool res = false;
+            if (car1 is null && car2 is null) res = true;
+            if (car1 is null || car2 is null) res = false;
+            else 
+                res = (car1.FuelFlow == car2.FuelFlow && car1.FuelVolume == car2.FuelVolume);
+            return res;
         }
         public static bool operator !=(Car car1, Car car2)
         {

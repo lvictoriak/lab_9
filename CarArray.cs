@@ -9,7 +9,7 @@ using System.Xml.Schema;
 
 namespace Лаб_раб_9
 {
-    public class CarArray //ручной ввод
+    public class CarArray 
     {
         static Random random = new Random();
         Car[]cars; //одномерный массив элементов типа Car
@@ -27,7 +27,7 @@ namespace Лаб_раб_9
             count++;
         }
         //Конструктор с параметрами, заполняющий элементы случайными значениями
-        public CarArray(int length) //организовать ручной ввод вне класса
+        public CarArray(int length)
         {
             cars = new Car[length];
             Random random = new Random();
@@ -59,7 +59,6 @@ namespace Лаб_раб_9
             {
                 cars[i] = new Car(other.cars[i]);
             }
-
             count++;
         }
         //Вывод информации
@@ -74,7 +73,6 @@ namespace Лаб_раб_9
             }
             return res;
         }
-
         //Индексатор
         public Car this[int index]
         {
@@ -91,7 +89,7 @@ namespace Лаб_раб_9
                 cars[index] = value;
             }
         }
-        //Посчет кол-ва созданных объектов и коллекций
+        //Подсчет кол-ва созданных объектов и коллекций
         public static int GetCount => count;
     }
 }

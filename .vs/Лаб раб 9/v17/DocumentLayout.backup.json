@@ -10,16 +10,16 @@
       "RelativeMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|solutionrelative:car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\cararray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|solutionrelative:cararray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|",
       "RelativeMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|solutionrelative:classdiagram1.cd||{59B0B277-7DDF-4E36-A3ED-02DAC5B9E2FA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F9C899F6-4296-420D-80BE-5BEFDC134B07}|\u041B\u0430\u0431 \u0440\u0430\u0431 9.csproj|C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\logic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,7 +37,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -51,13 +51,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "CarArray.cs",
               "DocumentMoniker": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\CarArray.cs",
               "RelativeDocumentMoniker": "CarArray.cs",
-              "ToolTip": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\CarArray.cs",
-              "RelativeToolTip": "CarArray.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\CarArray.cs*",
+              "RelativeToolTip": "CarArray.cs*",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwDUAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-12T20:27:20.513Z",
               "IsPinned": true,
@@ -69,9 +69,9 @@
               "Title": "Car.cs",
               "DocumentMoniker": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\Car.cs",
               "RelativeDocumentMoniker": "Car.cs",
-              "ToolTip": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\Car.cs",
-              "RelativeToolTip": "Car.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAIwHIAAAAuAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\Car.cs*",
+              "RelativeToolTip": "Car.cs*",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAgwLQAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-02T13:57:20.187Z",
               "EditorCaption": ""
@@ -84,14 +84,14 @@
               "RelativeDocumentMoniker": "..\\Unit tests\\UnitTest1.cs",
               "ToolTip": "C:\\Users\\vikal\\source\\repos\\Unit tests\\UnitTest1.cs*",
               "RelativeToolTip": "..\\Unit tests\\UnitTest1.cs*",
-              "ViewState": "AgIAACUAAAAAAAAAAAA5wD8AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAPgAAAAAAAAAAAAYwBcBAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-09T18:17:32.917Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "ClassDiagram1.cd",
               "DocumentMoniker": "C:\\Users\\vikal\\source\\repos\\\u041B\u0430\u0431-\u0440\u0430\u0431-9\\ClassDiagram1.cd",
               "RelativeDocumentMoniker": "ClassDiagram1.cd",
