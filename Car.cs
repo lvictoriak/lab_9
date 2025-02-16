@@ -70,40 +70,59 @@ namespace Лаб_раб_9
         // Конструктор копирования
         public Car(Car other)
         {
+            if (other == null) throw new ArgumentNullException("other");
             FuelFlow = other.FuelFlow;
             FuelVolume = other.FuelVolume;
             count++;
         }
 
         // Метод для вычисления запаса хода
-        public double CalculateRange()
+        public double CalculateRange() //сделать по одному возвращению, создать переменную
         {
+            double range = 0;
             if (FuelFlow == 0) 
-                return 0;
+                range = 0;
             else
-                return Logic.MathematicalRound(FuelVolume / FuelFlow * 100, 3);
+                range = Logic.MathematicalRound(FuelVolume / FuelFlow * 100, 3);
+            return range;
         }
 
         // Статический метод для вычисления запаса хода
         public static double CalculateRangeStatic(Car car)
         {
-            if (car.FuelFlow == 0) return 0;
-            return Math.Round(car.FuelVolume / car.FuelFlow * 100, 3);
+            double range = 0;
+            if (car.FuelFlow == 0) range = 0;
+            range = Logic.MathematicalRound(car.FuelVolume / car.FuelFlow * 100, 3);
+            return range;
         }
-        //Унарные операции
-        public static Car operator ++(Car car)
+        //Вывод информаиции об объекте
+        public string PrintInfo(Car car)
         {
             if (car is null) throw new ArgumentNullException(nameof(car));
-            car.FuelFlow += 0.1;
-            return car;
+            return $"Расход топлива: {car.FuelFlow} л/100км." + $" Объем топлива: {car.FuelVolume} л." + $" Запас хода: {car.CalculateRange()} км.";
+        }
+        //Унарные операции
+
+        public static Car operator ++(Car car)
+        {
+            Car car2 = new Car();
+            car2.FuelFlow = car.FuelFlow;
+            car2.FuelVolume = car.FuelVolume;
+            if (car is null) throw new ArgumentNullException(nameof(car));
+            else
+                car2.FuelFlow += 0.1;
+            return car2;
         }
         public static Car operator --(Car car)
         {
-            if (car is null) throw new ArgumentNullException(nameof(car));
-            if (car.FuelVolume > 1) car.fuelVolume -= 1;
+            Car car2 = new Car();
+            car2.FuelFlow = car.FuelFlow;
+            car2.FuelVolume = car.FuelVolume;
+            if (car2 is null) throw new ArgumentNullException(nameof(car2));
+            if (car2.FuelVolume > 1) car2.fuelVolume -= 1;
             else
-                car.fuelVolume = 0;
-            return car;
+                car2.fuelVolume = 0;
+            return car2;
         }
         //Операции приведения типа
         public static explicit operator bool(Car car)
@@ -113,28 +132,37 @@ namespace Лаб_раб_9
         }
         public static implicit operator double(Car car)
         {
+            double res = 0;
             if (car is null) throw new ArgumentNullException(nameof(car));
-            if (car.FuelVolume < 5) return (-1);
-            return Logic.MathematicalRound((car.FuelVolume - 5) / car.FuelFlow,3);
+            if (car.FuelVolume < 5) res = -1;
+            else
+                res = Logic.MathematicalRound((car.FuelVolume - 5) / car.FuelFlow,3);
+            return res;
         }
         //Бинарные операции
         public static Car operator +(Car car, double liters)
         {
-            if (car is null) throw new ArgumentNullException(nameof(car));
-            car.FuelVolume += liters;
-            return car;
+            Car car2 = new Car();
+            car2.FuelFlow = car.FuelFlow;
+            car2.FuelVolume = car.FuelVolume;
+            if (car2 is null) throw new ArgumentNullException(nameof(car2));
+            car2.FuelVolume += liters;
+            return car2;
         }
         public static Car operator +(double liters, Car car)
         {
-            if (car is null) throw new ArgumentNullException(nameof(car));
-            if (car.FuelVolume < liters) car.FuelVolume = 0;
+            Car car2 = new Car();
+            car2.FuelFlow = car.FuelFlow;
+            car2.FuelVolume = car.FuelVolume;
+            if (car2 is null) throw new ArgumentNullException(nameof(car2));
+            if (car2.FuelVolume < liters) car2.FuelVolume = 0;
             else
-                car.FuelVolume -= liters;
-            return car;
+                car2.FuelVolume -= liters;
+            return car2;
         }
         public static bool operator ==(Car car1, Car car2)
         {
-            if (car1 is null && car2 is null) return true;
+            return (car1 is null && car2 is null); //проверить, уменьшить кол-во веток!!!!
             if (car1 is null || car2 is null) return false;
             return (car1.FuelFlow == car2.FuelFlow && car1.FuelVolume == car2.FuelVolume);
         }
@@ -143,11 +171,12 @@ namespace Лаб_раб_9
             return !(car1 == car2);
         }
         //Метод для сравнения двух объектов реализованного класса (для тестов)
-        public override bool Equals(object obj)
+        public bool Equals(object obj)
         {
+            bool res = false;
             if (obj is Car other)
-                return this.FuelVolume == other.FuelVolume && this.FuelFlow == other.FuelFlow;
-            return false;
+                res = this.FuelVolume == other.FuelVolume && this.FuelFlow == other.FuelFlow;
+            return res;
         }
         public static int GetCount => count;
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Лаб_раб_9
 {
-    internal class Program
+    public class Program
     {
         static Car CreateElem(double fuelVolume = 0, double fuelFlow = 0)
         { 
@@ -26,27 +26,31 @@ namespace Лаб_раб_9
         // Вывод информации об объекте
         static void PrintInfo(Car car)
         {
-            Console.WriteLine($"Расход топлива: {car.FuelFlow} л/100км");
-            Console.WriteLine($"Объем топлива: {car.FuelVolume} л");
-            Console.WriteLine($"Запас хода: {car.CalculateRange()} км");
-            Console.WriteLine();
-        }
-        static string PrintInfo1(Car car)
-        {
-            return $"Расход топлива: {car.FuelFlow} л/100км." + $" Объем топлива: {car.FuelVolume} л." + $" Запас хода: {car.CalculateRange()} км.";
+            Console.WriteLine(car.PrintInfo(car));
         }
         //Вывод элементов массива
         static void PrintInfoCars(CarArray cars)
         {
+            Console.WriteLine(cars.PrintInfo(cars));
+            Console.WriteLine();
+        }
+        //Найти автомобиль с наименьшим запасом хода.
+        public static Car FindCarMinimumRange(CarArray cars) 
+        {
+            if (cars.Length == 0) return null;
+
+            Car carWithMinRange = cars[0];
             for (int i = 0; i < cars.Length; i++)
             {
-                Console.WriteLine(PrintInfo1(cars[i]));
+                if (cars[i] != null & cars[i].CalculateRange() < carWithMinRange.CalculateRange())
+                    carWithMinRange = cars[i];
             }
-            Console.WriteLine();
+            return carWithMinRange;
         }
         static void Main(string[] args)
         {
             int answer = 0; //ответ для демонстрационного меню
+            int readAnswer = 0; //ответ для заполнения массива
             bool isReadAnswer = false; //для проверки ввода ответа
 
           
@@ -112,21 +116,21 @@ namespace Лаб_раб_9
                         Console.WriteLine();
                         
                         Console.WriteLine("Операции типа приведения");
-                        Console.WriteLine("Операции bool, правда, true, если автомобиль сможет доехать до заправки (до заправки ровно 100 км), а в баке в момент заправки останется не меньше 5 л топлива, иначе – false");
+                        Console.WriteLine("Операции bool(явная), правда, true, если автомобиль сможет доехать до заправки (до заправки ровно 100 км), а в баке в момент заправки останется не меньше 5 л топлива, иначе – false \n");
                         Car car12 = new Car(10, 30);
-                        Console.WriteLine("Элемент, над которым выполняет операцию");
+                        Console.WriteLine("Элемент, над которым выполняем операцию");
                         PrintInfo(car12);
                         if ((bool)car12) Console.WriteLine("Сможет доехать до заправки");
                         else
                             Console.WriteLine("Не сможет доехать до заправки");
                         Console.WriteLine();
 
-                        Console.WriteLine("Операция double, результат - количество сотен километров до заправки, чтобы в момент заправки в баке осталось ровно 5 л топлива. Если в момент расчёта в баке меньше 5 л топлива, значит результатом операции будет число\r\n-1\r\n");
-                        Console.WriteLine("Элемент, над которым выполняет операцию");
+                        Console.WriteLine("Операция double(неявная), результат - количество сотен километров до заправки, чтобы в момент заправки в баке осталось ровно 5 л топлива. Если в момент расчёта в баке меньше 5 л топлива, значит результатом операции будет число -1 \n");
+                        Console.WriteLine("Элемент, над которым выполняем операцию");
                         PrintInfo(car12);
-                        if ((double)car12 == -1) Console.WriteLine("Доехать до заправки авто не сможет");
+                        if (car12 == -1) Console.WriteLine("Доехать до заправки авто не сможет");
                         else
-                            Console.WriteLine($"До заправки сможет проехать {(double)car12} сотен километров, чтобы в момент заправки осталось 5 литров в баке");
+                            Console.WriteLine($"До заправки сможет проехать {car12} сотен километров, чтобы в момент заправки осталось 5 литров в баке");
                         Console.WriteLine();
                         
                         Console.WriteLine("Бинарные операции");
@@ -187,7 +191,7 @@ namespace Лаб_раб_9
 
                         break;
                     case 3:
-                        Console.WriteLine("Создание коллекции");
+                        Console.WriteLine("Создание коллекции элементов с помощью ДСЧ");
                         CarArray cars = new CarArray(5);
                         PrintInfoCars(cars);
 
@@ -195,33 +199,79 @@ namespace Лаб_раб_9
                         CarArray carsCopy = new CarArray(cars);
                         PrintInfoCars(carsCopy);
 
-                        Console.WriteLine("Проверка работы индексатора. Вывод первого эоемеента и попытка вывода 6 в коллекции из 5 элементов");
+                        Console.WriteLine("Проверка работы индексатора. Вывод первого элемента и попытка вывода 6 в коллекции из 5 элементов. Попытка изменить 1 и 6 элементы.");
                         try
                         {
                             PrintInfo(cars[0]);
                             PrintInfo(cars[6]);
+                            Console.WriteLine();
+                            
                         }
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex.Message);
                         }
+                        try
+                        {
+                            Car car41 = new Car();
+                            cars[0] = car41;
+                            PrintInfo(cars[0]);
+                            cars[6] = car41;
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        
                         Console.WriteLine();
 
                         Console.WriteLine("Нахождение автомобиля с наименьшим запасом хода");
                         PrintInfoCars(cars);
-                        Car minRangeCar = cars.FindCarMinimumRange();
+                        Car minRangeCar = FindCarMinimumRange(cars);
                         Console.WriteLine(minRangeCar);
+                        Console.WriteLine();
+
+                        Console.WriteLine("Как заполнить массив элементами?");
+                        Console.WriteLine("1. Заполнить массив ДСЧ");
+                        Console.WriteLine("2. Заполнить массив с клавиатуры");
+
+                        do
+                        {
+                            isReadAnswer = int.TryParse(Console.ReadLine(), out readAnswer);
+                            if (readAnswer < 0) isReadAnswer = false;
+                            if (readAnswer > 2) isReadAnswer = false;
+                            if (!isReadAnswer)
+                                Console.WriteLine("Ошибка при вводе пункта меню, попробуйте снова. Выбирайте только из предложенных.");
+                        } while (!isReadAnswer);
+
+                        Console.WriteLine("Введите количество элементов для создаваемого массива");
+                        int length = int.Parse(Console.ReadLine());
+                        switch (readAnswer)
+                        {
+                            case 1:
+                                CarArray cars1 = new CarArray(length);
+                                PrintInfoCars(cars1);
+                                break;
+                            case 2:
+                                double[] flows = new double[length];
+                                double[] volumes = new double[length];
+                                for (int i = 0; i < length; i++)
+                                {                            
+                                    Console.WriteLine($"Введите расход топлива для {i + 1} элемента");
+                                    flows[i] = double.Parse(Console.ReadLine());
+                                    Console.WriteLine($"Введите объем топлива для {i + 1} элемента");
+                                    volumes[i] = double.Parse(Console.ReadLine());
+                                }
+                                CarArray cars2 = new CarArray(length, flows, volumes);
+                                PrintInfoCars(cars2);
+                                break;
+
+                        }
+                        Console.WriteLine("Массив создан");
                         Console.WriteLine();
                         break;
                 }
             } while (answer < 4);
-            
-            
-            
-            Car c1 = CreateElem(10, 25);
-            PrintInfo(c1);
-            Console.WriteLine(Car.GetCount);
-            Car car5 = CreateElem(-10, 10);
 
         }
     }

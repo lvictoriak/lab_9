@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using System.Xml.Schema;
 
 namespace Лаб_раб_9
 {
-    public class CarArray
+    public class CarArray //ручной ввод
     {
         static Random random = new Random();
         Car[]cars; //одномерный массив элементов типа Car
@@ -26,13 +27,23 @@ namespace Лаб_раб_9
             count++;
         }
         //Конструктор с параметрами, заполняющий элементы случайными значениями
-        public CarArray(int length)
+        public CarArray(int length) //организовать ручной ввод вне класса
         {
             cars = new Car[length];
             Random random = new Random();
             for (int i = 0; i < length; i++)
             {
                 cars[i] = new Car(random.Next(5, 20), random.Next(10, 70));
+            }
+            count++;
+        }
+        //Конструктор с параметрами, заполняющийся ручным вводом
+        public CarArray(int length, double[] flows, double[] volumes)
+        {
+            cars = new Car[length];
+            for (int i = 0; i < length; i++)
+            {
+                cars[i] = new Car(flows[i], volumes[i]);
             }
             count++;
         }
@@ -51,7 +62,19 @@ namespace Лаб_раб_9
 
             count++;
         }
-        
+        //Вывод информации
+        public string PrintInfo(CarArray cars)
+        {
+            string res = "";
+            if (cars == null) res = "Массив пустой";
+            for (int i = 0; i < cars.Length; i++)
+            {
+                if (cars[i]  == null) res += $"Элемент {i+1} отсутствует. \n";
+                res += cars[i].PrintInfo(cars[i]) + "\n";
+            }
+            return res;
+        }
+
         //Индексатор
         public Car this[int index]
         {
@@ -67,19 +90,6 @@ namespace Лаб_раб_9
                     throw new IndexOutOfRangeException("Индекс вне допустимого диапазона.");
                 cars[index] = value;
             }
-        }
-        //Найти автомобиль с наименьшим запасом хода.
-        public Car FindCarMinimumRange()
-        {
-            if (cars.Length == 0) return null;
-
-            Car carWithMinRange = cars[0];
-            foreach (Car car in cars)
-            {
-                if (car != null & car.CalculateRange() < carWithMinRange.CalculateRange())
-                    carWithMinRange = car;
-            }
-            return carWithMinRange;
         }
         //Посчет кол-ва созданных объектов и коллекций
         public static int GetCount => count;
